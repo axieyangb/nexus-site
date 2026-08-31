@@ -3,7 +3,16 @@
 The public site for **Nexus.AI** — the on-premises AI infrastructure control plane.
 _Crate to cluster, offline._
 
+### 🌐 Live site — https://axieyangb.github.io/nexus-site/
+
 Built with Vite + React + TypeScript + Tailwind v4.
+
+## CI/CD
+
+Fully automated. Every push or merge to `main` triggers
+[`.github/workflows/deploy.yml`](.github/workflows/deploy.yml), which builds the
+site and publishes it to GitHub Pages — no manual deploy step. A change is live
+about a minute or two after it lands on `main`.
 
 ## Develop
 
