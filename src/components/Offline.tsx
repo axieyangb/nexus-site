@@ -1,11 +1,13 @@
 import { Kicker, IconOffline, IconCheck } from '../lib/brand'
 
+// Framed as outcomes, not mechanisms: what travels with the image / is served
+// from your own site — never named plumbing.
 const PROOFS = [
-  'Firmware images and virtual-media ISOs — served from the hub',
-  'OS image, kernel, initrd and cloud-init seed — UEFI HTTP Boot, no L2 needed',
-  'Agent binary and per-node identity — mTLS from your hub’s own CA',
-  'Kubernetes engines, CNI manifests and container images — staged over the LAN',
-  'Model weights and datasets — content-addressed, on your NAS or bucket',
+  'The OS image itself — flashed, or brought up from a machine you already have',
+  'The platform, its database and the orchestration engine — baked into the image',
+  'Accelerator drivers — shipped in the image, not downloaded on first boot',
+  'Model weights and datasets — catalogued in place on your own storage',
+  'Each machine’s identity — issued inside your site, never fetched from outside',
 ]
 
 export function Offline() {
@@ -18,14 +20,15 @@ export function Offline() {
             Air-gapped by design — down to the last byte.
           </h2>
           <p className="mt-5 text-[17px] leading-relaxed text-muted">
-            “Air-gapped” cannot be a checkbox you test last. If a single step reaches for the internet,
-            the whole promise fails at exactly the customer who bought you for it. So the rule is
-            absolute: every step sources every byte from your own storage tier, with no egress at all.
+            “Air-gapped” can’t be a checkbox you test last. If a single step reaches for the internet,
+            the whole promise fails at exactly the customer who bought you for it — a network with no
+            way out. So the rule is absolute: every step completes with no egress at all, sourcing
+            every byte from your own site.
           </p>
           <p className="mt-4 text-[17px] leading-relaxed text-muted">
-            The storage tier isn’t a feature beside the journey — it’s the floor the whole journey
-            stands on. A 57&nbsp;GB model repository registers in seconds having downloaded nothing;
-            a node with no internet still receives every gigabyte, once, over the LAN.
+            Because storage is the floor the whole journey stands on, a large model repository can be
+            registered in seconds having copied nothing — and a machine with no internet still receives
+            everything it needs, over your own network.
           </p>
         </div>
 
@@ -36,7 +39,7 @@ export function Offline() {
             </span>
             <div>
               <div className="text-[15px] font-bold text-ink-2">The zero-egress contract</div>
-              <div className="text-[13px] text-muted">What each step must find locally — all proven in the fleet</div>
+              <div className="text-[13px] text-muted">What every step must find locally — nothing fetched from outside</div>
             </div>
           </div>
           <ul className="mt-4 space-y-3">

@@ -1,9 +1,9 @@
 import { IconArrow, IconTerminal, Logo } from '../lib/brand'
 
-// The six journey steps, shown as a compact rail under the headline — this is the
-// product in one glance: a powered-off server on the left, a running node on the
-// right, and Nexus doing every step between.
-const RAIL = ['Discover', 'Bring-up', 'Provision', 'Enrol', 'Cluster', 'Prove']
+// The machine lifecycle, shown as a compact rail under the headline — this is the
+// product in one glance: a machine's life runs bare → imaged → grouped →
+// clustered → serving, and Nexus carries it the whole way.
+const RAIL = ['Discover', 'Image', 'Group', 'Cluster', 'Serve']
 
 export function Hero() {
   return (
@@ -27,9 +27,10 @@ export function Hero() {
           </h1>
 
           <p className="mx-auto mt-6 max-w-2xl text-balance text-[18px] leading-relaxed text-white/70 md:text-[19px]">
-            Nexus turns a rack of bare metal into a running AI cluster — powered on, provisioned,
-            meshed and serving models — operated by <strong className="text-white">one person</strong>,
-            with <strong className="text-white">no byte ever leaving your network</strong>.
+            Nexus ships as one OS image. Flash it to a machine and that machine images the rest,
+            groups them into a cluster and serves your models — run by
+            <strong className="text-white"> one operator</strong>, with
+            <strong className="text-white"> no byte ever leaving your network</strong>.
           </p>
 
           <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
@@ -72,8 +73,8 @@ export function Hero() {
           <div className="mt-4 flex items-center justify-center gap-2 text-center">
             <Logo size={15} color="var(--color-accent)" />
             <p className="text-[13px] text-white/55">
-              One operator gives Nexus a BMC address and walks away with a Kubernetes node —
-              no shell, no runbook, no vendor in the room.
+              One operator flashes the image, opens a machine by name, and the rack images itself
+              into a cluster — no installer, no shell, no runbook.
             </p>
           </div>
         </div>

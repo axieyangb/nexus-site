@@ -1,31 +1,31 @@
-import { Kicker, IconOffline, IconChip, IconCluster, IconLock, IconHeal } from '../lib/brand'
+import { Kicker, IconBox, IconChip, IconOffline, IconLock, IconHeal } from '../lib/brand'
 import type { ComponentType, SVGProps } from 'react'
 
 const POINTS: { Icon: ComponentType<SVGProps<SVGSVGElement>>; t: string; d: string }[] = [
   {
-    Icon: IconOffline,
-    t: 'Air-gap is the default, not a tier',
-    d: 'A five-node HA Kubernetes cluster installed with no internet at all — validated live. It falls out of the architecture: the hub reaches the internet once, every node pulls from the hub.',
+    Icon: IconBox,
+    t: 'One image, every machine',
+    d: 'No separate control plane to install, no agent to bootstrap onto a blank machine. The image is the whole product; the machine you open is simply the one you’re driving from.',
   },
   {
     Icon: IconChip,
-    t: 'Accelerator-first, hardware-agnostic',
-    d: 'New PCIe GPU vendors reach production faster than any enterprise can integrate them. Nexus bridges heterogeneous accelerators into one platform — no lock-in to a single silicon vendor.',
+    t: 'Bottom-up, from the OS',
+    d: 'Your AI stack ships as a payload on a purpose-built operating system — partitioned, hardened and driver-complete — not assembled by hand on top of a generic one. The ground can’t drift.',
+  },
+  {
+    Icon: IconOffline,
+    t: 'Offline by design',
+    d: 'Every byte comes from your own site. Nothing phones home — so the promise holds at exactly the customer who bought you for it: a network with no way out.',
   },
   {
     Icon: IconLock,
-    t: 'Your weights never touch our disk',
-    d: 'We catalogue; your storage holds. A 57&nbsp;GB repository is registered in seconds having downloaded nothing. The bytes stay exactly where your compliance team put them.',
-  },
-  {
-    Icon: IconCluster,
-    t: 'Bare metal to running model, one plane',
-    d: 'No stitching MAAS to Rancher to Harbor. The span from a powered-off server to a served model lives in a single control plane — which is where the ops headcount used to live.',
+    t: 'Your weights never leave your storage',
+    d: 'Nexus catalogues; your storage holds. A large repository is registered in seconds having copied nothing. The bytes stay exactly where your compliance team put them.',
   },
   {
     Icon: IconHeal,
-    t: 'Operable without an SRE org',
-    d: 'Desired state is reconciled on a loop; a hub restart or a moved BMC self-heals. The routine work is done by the platform, not described to a team that has to do it.',
+    t: 'One operator, no SRE org',
+    d: 'The routine work is done by the platform. Machines heal themselves; a second rack is a few clicks, not a project. Accelerator-first, and hardware-agnostic by design.',
   },
 ]
 
@@ -56,7 +56,7 @@ export function Why() {
           ))}
           <div className="flex items-center bg-ink p-7 text-white">
             <p className="text-[17px] font-semibold leading-relaxed">
-              No platform today is accelerator-first, hardware-agnostic and operable without a large
+              No platform today is accelerator-first, delivered as one image, and operable without an
               SRE organization — <span className="accent-text">built by an AI-native team.</span> That
               is the gap Nexus fills.
             </p>

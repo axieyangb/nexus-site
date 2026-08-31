@@ -19,8 +19,8 @@ const TIERS: Tier[] = [
     cta: 'Get the container',
     features: [
       'The full crate-to-cluster journey',
-      'k3s clustering & workload serving',
-      'One hub, one operator account',
+      'Clustering & AI-workload serving',
+      'One operator account',
       'Community support',
     ],
   },
@@ -33,9 +33,9 @@ const TIERS: Tier[] = [
     featured: true,
     features: [
       'Everything in Community',
-      'Fully air-gapped installs & HA control plane',
-      'Multi-user, RBAC & audit trail',
-      'BMC/bare-metal provisioning at rack scale',
+      'Fully air-gapped deployments & high availability',
+      'Multi-user, roles & audit trail',
+      'Bare-metal discovery & imaging at rack scale',
       'Onboarding, SLAs & on-site support',
     ],
   },

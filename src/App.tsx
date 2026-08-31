@@ -2,6 +2,7 @@ import { Nav } from './components/Nav'
 import { Hero } from './components/Hero'
 import { Stats } from './components/Stats'
 import { Problem } from './components/Problem'
+import { OSImage } from './components/OSImage'
 import { Journey } from './components/Journey'
 import { Offline } from './components/Offline'
 import { DayN } from './components/DayN'
@@ -24,6 +25,7 @@ export function App() {
         <Hero />
         <Stats />
         <Problem />
+        <OSImage />
         <Journey />
         <Offline />
         <DayN />

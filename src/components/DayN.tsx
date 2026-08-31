@@ -17,7 +17,7 @@ const DAYS: Day[] = [
     from: 'days',
     to: 'hours',
     Icon: IconServer,
-    desc: 'One-click install. A single node bootstraps a full cluster — the whole crate-to-cluster journey, unattended.',
+    desc: 'Flash one machine with the image and it brings up the rest — the whole crate-to-cluster journey, unattended.',
   },
   {
     tag: 'Day 1',

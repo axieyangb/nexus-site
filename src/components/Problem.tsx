@@ -29,10 +29,10 @@ export function Problem() {
             The teams who most need AI on their own metal are the ones who can least stand it up.
           </h2>
           <p className="mt-5 text-[17px] leading-relaxed text-muted">
-            Today the answer is to assemble a stack from six moving parts — a mesh VPN, an ingress
-            gateway, a Kubernetes distribution, a bare-metal provisioner, an artifact registry and a
-            monitoring stack — and hire the team that keeps them in step. That team is the product
-            they are actually buying, and it does not scale.
+            Today the answer is to assemble a stack from half a dozen moving parts — a private
+            network, a gateway, an orchestration layer, a bare-metal provisioner, an artifact
+            registry and a monitoring stack — and hire the team that keeps them in step. That team is
+            the product they are actually buying, and it does not scale.
           </p>
         </div>
 

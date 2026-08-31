@@ -1,4 +1,4 @@
-import { Kicker, IconServer, IconChip, IconBox, IconMesh, IconCluster, IconBolt } from '../lib/brand'
+import { Kicker, IconServer, IconBox, IconMesh, IconCluster, IconBolt } from '../lib/brand'
 import type { ComponentType, SVGProps } from 'react'
 
 type Step = {
@@ -8,13 +8,14 @@ type Step = {
   Icon: ComponentType<SVGProps<SVGSVGElement>>
 }
 
+// The machine lifecycle, straight from the design: bare → imaged → grouped →
+// clustered → serving. One screen shows every machine's place in it.
 const STEPS: Step[] = [
-  { n: '01', title: 'Discover', Icon: IconServer, desc: 'An unracked server, powered off, factory BMC. Nexus finds it by MAC or serial — the address is only a cache, so a machine that moves is never lost.' },
-  { n: '02', title: 'Bring-up', Icon: IconChip, desc: 'Out of band: set identity and credentials, bring up the network, sanity-check firmware. Redfish instances are resolved, never hardcoded; capabilities are probed, never inferred.' },
-  { n: '03', title: 'Provision', Icon: IconBox, desc: 'An OS onto bare metal via UEFI HTTP Boot — no L2 adjacency required — or a VM onto a hypervisor with cloud-init. Every byte served from your storage.' },
-  { n: '04', title: 'Enrol', Icon: IconMesh, desc: 'The node dials out to the control plane, receives an identity signed by your hub’s own CA, and joins the overlay mesh. No inbound ports, no SSH keys to distribute.' },
-  { n: '05', title: 'Cluster', Icon: IconCluster, desc: 'Kubernetes across those nodes — k3s or kubeadm — created, scaled, upgraded, backed up and torn down by a reconciler. Air-gapped HA, validated live.' },
-  { n: '06', title: 'Prove', Icon: IconBolt, desc: 'A GPU-aware workload is scheduled, served and made reachable. The rack is doing work — and you did it without writing a runbook.' },
+  { n: '01', title: 'Discover', Icon: IconServer, desc: 'Machines announce themselves on the network — you reach one by name, with no IP address to hunt down. Bare machines waiting to be brought up are found too.' },
+  { n: '02', title: 'Image', Icon: IconBox, desc: 'Flash the Nexus image to a machine, or bring it up from one that’s already running. It comes up as a Nexus machine — no installer, no CLI, no separate provisioning system.' },
+  { n: '03', title: 'Group', Icon: IconMesh, desc: 'Imaged machines join the group. A machine that’s imaged but not yet grouped isn’t an error — it’s the middle of the journey, and Nexus shows exactly where each one sits.' },
+  { n: '04', title: 'Cluster', Icon: IconCluster, desc: 'The group becomes a cluster, its lifecycle handled for you. Bringing up a second rack is just pointing an existing machine at the new ones.' },
+  { n: '05', title: 'Serve', Icon: IconBolt, desc: 'Deploy, scale, expose and observe your AI workloads on the accelerators Nexus detects. The rack is doing work — and you never wrote a runbook.' },
 ]
 
 export function Journey() {
@@ -23,14 +24,15 @@ export function Journey() {
       <div className="grid-dots absolute inset-0 opacity-50" />
       <div className="relative mx-auto max-w-6xl px-5">
         <div className="max-w-2xl">
-          <Kicker>The journey · crate to cluster</Kicker>
+          <Kicker>The lifecycle · bare to serving</Kicker>
           <h2 className="mt-4 text-balance text-4xl font-extrabold tracking-tight md:text-[44px]">
-            One unattended path from a powered-off box to a running node.
+            One path a machine walks — and one screen that shows where it is.
           </h2>
           <p className="mt-5 text-[17px] leading-relaxed text-white/65">
-            Every step completes bottom-up, in sequence, as a first-class state machine — not a shell
-            script that sleeps and hopes. Health gates wait on real readiness. Desired state is
-            reconciled on a loop, so a hub restart or a moved BMC self-heals instead of stranding you.
+            A machine’s whole life is <span className="text-white">bare → imaged → grouped → clustered</span>,
+            then serving. Each stage is a real place a machine can be, not a step that either finished
+            or failed — so the operator always knows what’s in front of them, and Nexus heals its way
+            forward instead of stalling.
           </p>
         </div>
 
@@ -52,11 +54,14 @@ export function Journey() {
           ))}
         </div>
 
-        <div className="mt-10 rounded-2xl border border-accent/25 bg-accent/[0.08] p-6 md:flex md:items-center md:gap-5">
-          <span className="font-mono text-[12px] uppercase tracking-[0.18em] text-accent">Done means</span>
-          <p className="mt-2 text-[17px] font-medium leading-relaxed text-white/90 md:mt-0">
-            A customer unboxes a server, racks it, gives Nexus its BMC address, and walks away with a
-            Kubernetes node — <span className="text-white">without a shell, without us, without a runbook.</span>
+        <div className="mt-4 flex items-center rounded-2xl border border-accent/25 bg-accent/[0.08] p-6 md:gap-5">
+          <span className="hidden shrink-0 font-mono text-[12px] uppercase tracking-[0.18em] text-accent md:block">
+            The budget
+          </span>
+          <p className="text-[17px] font-medium leading-relaxed text-white/90">
+            Unrack a server and be serving an AI workload in{' '}
+            <span className="text-white">half an hour</span> — the constraint every part of Nexus is
+            measured against.
           </p>
         </div>
       </div>
