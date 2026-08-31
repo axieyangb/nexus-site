@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+/* Brand tokens, lifted straight from the Nexus product frontend so the site and
+   the app read as one identity: indigo accent #5b54e8, Manrope for text,
+   JetBrains Mono for anything that is code or a machine fact. Registered under
+   @theme so Tailwind generates the utilities (bg-accent, text-ink, …). */
+@theme {
+  --font-sans: "Manrope", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --color-accent: #5b54e8;
+  --color-accent-hover: #4c45d6;
+  --color-accent-soft: #efeefc;
+
+  --color-ink: #0b0c14;        /* deep near-black indigo — dark sections */
+  --color-ink-2: #14151a;
+  --color-paper: #f5f6f8;      /* app background */
+  --color-surface: #ffffff;
+  --color-line: #e8e9ee;
+  --color-line-strong: #d7d9e0;
+
+  --color-muted: #595a66;
+  --color-dim: #9a9ca8;
+
+  --color-blue: #3b6ef5;
+  --color-green: #1a9d5a;
+  --color-amber: #c2870b;
+  --color-red: #d83a3a;
+}
+
+:root { color-scheme: light; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--color-paper);
+  color: var(--color-ink-2);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* A faint dotted grid, used behind dark hero/CTA bands to read as "infrastructure". */
+.grid-dots {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+.grid-dots-light {
+  background-image: radial-gradient(rgba(20, 21, 26, 0.05) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+/* The gradient the accent uses when it needs to feel premium (hero headline glow,
+   CTA button). Indigo into a warmer violet. */
+.accent-grad {
+  background-image: linear-gradient(120deg, #6d66f5 0%, #5b54e8 45%, #7c3aed 100%);
+}
+.accent-text {
+  background-image: linear-gradient(120deg, #8b86f7 0%, #a78bfa 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@keyframes float-up {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.rise { animation: float-up 0.6s ease both; }
